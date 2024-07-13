@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section id="form-wrapper">
+        <aside id="sidebar">
+          <nav>
+            <ul>
+              <li class="step">
+                <div id="circle1" class="circle">1</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 1</span>
+                  <span class="step-label">YOUR INFO</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle2" class="circle">2</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 2</span>
+                  <span class="step-label">SELECT PLAN</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle3" class="circle">3</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 3</span>
+                  <span class="step-label">ADD-ONS</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle4" class="circle">4</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 4</span>
+                  <span class="step-label">SUMMARY</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!--Step 1-->
+        <article id="step1">
+          <header>
+            <h2>Personal info</h2>
+            <p>Please provide your name, email address, and phone number.</p>
+          </header>
+          <form id="myForm">
+            <div class="input-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="e.g. Stephen King"
+              />
+              <span class="error" id="name-error"></span>
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+              <span class="error" id="email-error"></span>
+            </div>
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="e.g. +1 234 567 890"
+              />
+              <span class="error" id="phone-error"></span>
+            </div>
+            <div id="button">
+              <button type="submit">Next Step</button>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <!--STEP 2-->
+    <main style="display: none" id="step2">
+      <section id="form-wrapper">
+        <aside id="sidebar">
+          <nav>
+            <ul>
+              <li class="step">
+                <div id="circle1" class="circle">1</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 1</span>
+                  <span class="step-label">YOUR INFO</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle2" class="circle">2</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 2</span>
+                  <span class="step-label">SELECT PLAN</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle3" class="circle">3</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 3</span>
+                  <span class="step-label">ADD-ONS</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle4" class="circle">4</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 4</span>
+                  <span class="step-label">SUMMARY</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!--Step 2-->
+        <article>
+          <header>
+           
+            <h2>Select your plan</h2>
+            <p>You have the option of monthly or yearly billing.</p>
+            <div id="plan-error" class="error"></div>
+         
+          </header>
+         
+          <div class="plans">
+            <div class="plan" id="arcade-plan">
+              <span class="icon">
+                <img src="./assets/images/icon-arcade.svg" alt="arcade" />
+              </span>
+              <div class="plan-content">
+                <h2>Arcade</h2>
+                <p class="price" id="arcade-price">$9/mo</p>
+                <p class="free-months" id="arcade-free-months"></p>
+              </div>
+            </div>
+          
+            <div class="plan" id="advanced-plan">
+              <span class="icon">
+                <img src="./assets/images/icon-advanced.svg" alt="advanced" />
+              </span>
+              <div class="plan-content">
+                <h2>Advanced</h2>
+                <p class="price" id="advanced-price">$12/mo</p>
+                <p class="free-months" id="advanced-free-months"></p>
+              </div>
+            </div>
+          
+            <div class="plan" id="pro-plan">
+              <span class="icon">
+                <img src="./assets/images/icon-pro.svg" alt="pro" />
+              </span>
+              <div class="plan-content">
+                <h2>Pro</h2>
+                <p class="price" id="pro-price">$15/mo</p>
+                <p class="free-months" id="pro-free-months"></p>
+              </div>
+            </div>
+            
+          </div>
+          
+
+          <div class="billing-options">
+            <label for="billing-toggle" class="billing-label-Monthly"
+              >Monthly</label
+            >
+            <input
+              type="checkbox"
+              id="billing-toggle"
+              class="billing-toggle"
+              onchange="switchPricing()"
+            />
+            <label for="billing-toggle" class="billing-label-Yearly"
+              >Yearly</label
+            >
+          </div>
+
+          <div class="navigation">
+            <span class="go-back">Go Back</span>
+            <div id="button">
+              <button type="submit">Next Step</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!--STEP 3-->
+    <main style="display: none" id="step3">
+      <section id="form-wrapper">
+        <aside id="sidebar">
+          <nav>
+            <ul>
+              <li class="step">
+                <div id="circle1" class="circle">1</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 1</span>
+                  <span class="step-label">YOUR INFO</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle2" class="circle">2</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 2</span>
+                  <span class="step-label">SELECT PLAN</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle3" class="circle">3</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 3</span>
+                  <span class="step-label">ADD-ONS</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle4" class="circle">4</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 4</span>
+                  <span class="step-label">SUMMARY</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!--Step 3-->
+        <article>
+          <header>
+            <h2>Pick add-ons</h2>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </header>
+
+          <section id="ads">
+            <input type="hidden" id="billing-period" />
+            <div class="addon">
+              <input
+                type="checkbox"
+                id="addon1"
+                class="addon-checkbox"
+                onclick="toggleActive(this)"
+              />
+              <div>
+                <div class="addon-title">Online service</div>
+                <div class="addon-description">Access to multiplayer games</div>
+              </div>
+              <div class="addon-price" id="addon1-price">+$1/mo</div>
+            </div>
+            <div class="addon">
+              <input
+                type="checkbox"
+                id="addon2"
+                class="addon-checkbox"
+                onclick="toggleActive(this)"
+              />
+              <div>
+                <div class="addon-title">Larger storage</div>
+                <div class="addon-description">Extra 1TB of cloud save</div>
+              </div>
+              <div class="addon-price" id="addon2-price">+$2/mo</div>
+            </div>
+            <div class="addon">
+              <input
+                type="checkbox"
+                id="addon3"
+                class="addon-checkbox"
+                onclick="toggleActive(this)"
+              />
+              <div>
+                <div class="addon-title">Customizable profile</div>
+                <div class="addon-description">
+                  Custom theme on your profile
+                </div>
+              </div>
+              <div class="addon-price" id="addon3-price">+$2/mo</div>
+            </div>
+
+            <div class="navigation">
+              <span class="go-back">Go Back</span>
+              <div id="button">
+                <button type="submit">Next Step</button>
+              </div>
+            </div>
+          </section>
+
+
+        </article>
+      </section>
+    </main>
+
+    <!--STEP 4-->
+    <main style="display: none" id="step4">
+      <section id="form-wrapper">
+        <aside id="sidebar">
+          <nav>
+            <ul>
+              <li class="step">
+                <div id="circle1" class="circle">1</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 1</span>
+                  <span class="step-label">YOUR INFO</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle2" class="circle">2</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 2</span>
+                  <span class="step-label">SELECT PLAN</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle3" class="circle">3</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 3</span>
+                  <span class="step-label">ADD-ONS</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle4" class="circle">4</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 4</span>
+                  <span class="step-label">SUMMARY</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!--Step 4-->
+        <article>
+          <header>
+            <h2>Finishing up</h2>
+            <p>Double-check everything looks OK before confirming.</p>
+          </header>
+
+          <section id="finish">
+            <div id="summary">
+              <h3>Summary</h3>
+              <div id="personal-info-summary"></div>
+              <div id="plan-summary"></div>
+              <div id="addons-summary"></div>
+              <div id="total-price"></div>
+              <div id="change"><a href="#" id="change-link">Change</a></div>
+             
+            </div>
+          </section>
+
+          <div class="navigation">
+            <span class="go-back">Go Back</span>
+            <div id="button">
+              <button type="submit">Confirm</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!--STEP 5-->
+    <main style="display: none" id="step5">
+      <section id="form-wrapper">
+        <aside id="sidebar">
+          <nav>
+            <ul>
+              <li class="step">
+                <div id="circle1" class="circle">1</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 1</span>
+                  <span class="step-label">YOUR INFO</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle2" class="circle">2</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 2</span>
+                  <span class="step-label">SELECT PLAN</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle3" class="circle">3</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 3</span>
+                  <span class="step-label">ADD-ONS</span>
+                </div>
+              </li>
+              <li class="step">
+                <div id="circle4" class="circle">4</div>
+                <div class="step-content">
+                  <span class="step-number">STEP 4</span>
+                  <span class="step-label">SUMMARY</span>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!--Step 5-->
+        <article>
+          <header>
+            <div id="thank-you-box">
+              <img
+                id="thank-you"
+                src="./assets/images/icon-thank-you.svg"
+                alt=""
+              />
+              <h2>Thank you!</h2>
+              <p>
+                Thanks for confirming your subscription! We hope you have fun
+                using our platform. If you ever need support, please feel free
+                to email us at support@loremgaming.com.
+              </p>
+            </div>
+          </header>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
