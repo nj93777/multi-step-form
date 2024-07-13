@@ -19,6 +19,4 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 - CSS custom properties
 - Flexbox
 
-# multi-step-form-main
-# multi-step-form-main
-# multi-step-form
+
