@@ -67,8 +67,8 @@ nav ul {
   font-size: 10px;
   font-weight: bold;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +76,7 @@ nav ul {
 }
 
 .circle.active {
+  color: black;
   background-color: #bee1ff;
 }
 
