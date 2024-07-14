@@ -421,6 +421,10 @@ header h2 {
   padding: 20px;
 }
 
+#button-confirm {
+  background: #463EFA;
+}
+
 @media screen and (max-width: 786px) {
   body {
     font-size: 18px;
